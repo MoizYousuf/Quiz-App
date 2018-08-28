@@ -1,0 +1,21 @@
+body{
+    background: url(../images/quiz2.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+.w3-panel{
+    width: 40%;
+    margin-left: 30%;
+}
+.input{
+    width: 40%;
+    height: 36px;
+    border: 1px solid lightgray;
+    border-radius: 7px;
+}
+.none{
+    display: none !important;
+}
+.block{
+    display: table !important;
+}

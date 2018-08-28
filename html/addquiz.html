@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Quiz App</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="../css/quizAdd.css">
+    <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyCykwARwInqFAeLI1-qZODdMP1EQhkFbf4",
+            authDomain: "quiz-app-js.firebaseapp.com",
+            databaseURL: "https://quiz-app-js.firebaseio.com",
+            projectId: "quiz-app-js",
+            storageBucket: "quiz-app-js.appspot.com",
+            messagingSenderId: "736972465648"
+        };
+        firebase.initializeApp(config);
+    </script>
+</head>
+
+<body>
+    <div class="w3-bar w3-blue" id="myNavbar">
+        <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()"
+            title="Toggle Navigation Menu">
+            <i class="fa fa-bars"></i>
+        </a>
+        <a href="index.html" class="w3-bar-item w3-button">HOME</a>
+        <a href="addquiz.html" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> Add Quiz</a>
+        <a href="quiz.html" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> Quizs</a>
+        <a href="#contact" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> CONTACT</a>
+        <a href="javascript:void(0)" onclick="logout()" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-red">
+            Logout
+        </a>
+    </div>
+    <div class="w3-panel w3-card-4 w3-center none" id="questionDiv">
+        <h2 class="w3-jumbo">Add Questions</h2>
+        <input class="w3-input" type="text" id="question" placeholder="Add Questions">
+        <input class="input" id="input1" type="text" id="selection1" placeholder="Selection : 1">
+        <input class="input" id="input2" type="text" id="selection2" placeholder="Selection : 2">
+        <input class="input" id="input3" type="text" id="selection3" placeholder="Selection : 3">
+        <input class="input" id="input4" type="text" id="selection4" placeholder="Selection : 4"></p>
+        <p>Correct Selection index: <input type="text" placeholder="" id="correctIndex" style="width: 30px;"></p>
+        <p><button class="w3-btn w3-black" onclick="addQuestion()">Add Questions</button></p>
+    </div>
+
+    <div id="quizAdd">
+        <div class="w3-panel w3-card-4 w3-center" id="quizDiv">
+            <h2 class="w3-jumbo">Add Quiz</h2>
+            <input class="w3-input" type="text" id="quiz" placeholder="Quiz Title">
+            <input class="w3-input" id="passingPer" type="text" id="selection1" placeholder="Passing Percentage">
+            <p><button class="w3-btn w3-black" onclick="addQuiz()">Add Quiz</button></p>
+        </div>
+
+
+    </div>
+
+    <script src="../js/quizAdd.js"></script>
+</body>
+
+</html>

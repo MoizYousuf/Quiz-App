@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Quiz App</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css"/>
+ <link rel="stylesheet" href="../css/login.css">
+ <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCykwARwInqFAeLI1-qZODdMP1EQhkFbf4",
+    authDomain: "quiz-app-js.firebaseapp.com",
+    databaseURL: "https://quiz-app-js.firebaseio.com",
+    projectId: "quiz-app-js",
+    storageBucket: "quiz-app-js.appspot.com",
+    messagingSenderId: "736972465648"
+  };
+  firebase.initializeApp(config);
+</script>
+</head>
+
+<body id="LoginForm">
+    <div class="container">
+        <h1 class="form-heading">login Form</h1>
+        <div class="login-form">
+            <div class="main-div">
+                <div class="panel">
+                    <h2>User Login</h2>
+                    <p>Please enter your email and password</p>
+                </div>
+                <div id="Login">
+
+                    <div class="form-group">
+
+
+                        <input type="email" class="form-control" id="inputEmail" placeholder="Email Address">
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+
+                    </div>
+                    <div class="forgot">
+                        <a href="reset.html">Forgot password?</a>
+                        <br /> Dont Have Account ..
+                        <a href="signup.html">SignUp</a>
+                    </div>
+                    <button type="submit" class="btn btn-primary" onclick="login()">Login</button>
+                    
+
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+<script src="../js/login.js"></script>
+</body>
+
+</html>

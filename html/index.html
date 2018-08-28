@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title>Quiz App</title>
+    <link rel="stylesheet" href="../css/index.css">
+    <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCykwARwInqFAeLI1-qZODdMP1EQhkFbf4",
+    authDomain: "quiz-app-js.firebaseapp.com",
+    databaseURL: "https://quiz-app-js.firebaseio.com",
+    projectId: "quiz-app-js",
+    storageBucket: "quiz-app-js.appspot.com",
+    messagingSenderId: "736972465648"
+  };
+  firebase.initializeApp(config);
+</script>
+<style>
+.w3-wide {letter-spacing: 10px;}
+.w3-hover-opacity {cursor: pointer;}
+</style>
+</head>
+
+<body>
+    <div class="w3-bar w3-blue" id="myNavbar">
+        <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()"
+            title="Toggle Navigation Menu">
+            <i class="fa fa-bars"></i>
+        </a>
+        <a href="index.html" class="w3-bar-item w3-button">HOME</a>
+        <a href="admin.html" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> Admin</a>
+        <a href="quiz.html" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> Quizs</a>
+        <a href="#contact" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> CONTACT</a>
+        <a href="javascript:void(0)" onclick="logout()" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-red">
+            Logout
+        </a>
+    </div>
+    <div id="body">
+    </div>
+
+    <script src="../js/index.js"></script>
+</body>
+
+</html>
