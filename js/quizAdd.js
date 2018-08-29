@@ -24,6 +24,8 @@ function addQuestion(){
         let selection2 = document.getElementById('input2').value;
         let selection3 = document.getElementById('input3').value;
         let selection4 = document.getElementById('input4').value;
+        let Marks = document.getElementById('input5').value;
+
         let correctIndex = document.getElementById('correctIndex').value;
         
         quizName = quizName.toLowerCase();
@@ -32,10 +34,19 @@ function addQuestion(){
             'question': question,
             "selections": [selection1,selection2,selection3,selection4],
             'correct_index' : correctIndex,
-            'passing_percentage' : passing_percentage
+            'passing_percentage' : passing_percentage,
+            'question_marks': Marks
             
         }).then(() => {
             console.log('quiz added')
+            document.getElementById('question').value = '';
+            document.getElementById('input1').value = '';
+            document.getElementById('input2').value = '';
+            document.getElementById('input3').value = '';
+            document.getElementById('input4').value = '';
+            document.getElementById('input5').value = '';
+            document.getElementById('correctIndex').value = '';
+            
         }).catch((error) => {
             console.log(error)
         })
