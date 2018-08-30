@@ -1,3 +1,4 @@
+let questionNo = 1;
 function logout(){
     firebase.auth().signOut().then(() => {
         document.location='login.html'
@@ -16,6 +17,7 @@ function addQuiz(){
     
     console.log(document.getElementById('quiz').value)
     
+     document.getElementById('questionNo').innerHTML=`${questionNo}`
 }
 
 function addQuestion(){
@@ -39,6 +41,8 @@ function addQuestion(){
             
         }).then(() => {
             console.log('quiz added')
+            questionNo++;
+            document.getElementById('questionNo').innerHTML=questionNo;
             document.getElementById('question').value = '';
             document.getElementById('input1').value = '';
             document.getElementById('input2').value = '';
