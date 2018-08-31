@@ -82,6 +82,7 @@ function logout() {
     });
 }
 function getUserData() {
+  listsDiv.innerHTML = ``;
   firebase
     .database()
     .ref(`/Quiz`)

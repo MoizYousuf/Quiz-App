@@ -3,9 +3,7 @@ function signUp(){
     let lastName = document.getElementById('last_name').value;
     let email = document.getElementById('email').value;
     let password = document.getElementById('password').value
-    
-    localStorage.setItem("firstName", firstName)
-    localStorage.setItem("lastName", lastName)
+
 
     
     // firebase
