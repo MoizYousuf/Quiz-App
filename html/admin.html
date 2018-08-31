@@ -36,10 +36,9 @@
             title="Toggle Navigation Menu">
             <i class="fa fa-bars"></i>
         </a>
-        <a href="index.html" class="w3-bar-item w3-button">HOME</a>
+        <a href="indexAdmin.html" class="w3-bar-item w3-button">HOME</a>
         <a href="admin.html" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> Admin</a>
-        <a href="quiz.html" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> Quizs</a>
-        <a href="#contact" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> CONTACT</a>
+        <a href="indexAdmin.html" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> Quizs</a>
         <a href="javascript:void(0)" onclick="logout()" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-red">
             Logout
         </a>
@@ -48,26 +47,23 @@
         <div class="w3-panel w3-card-4 w3-center" action="/action_page.php">
             <h2 class="w3-jumbo">Add Quiz</h2>
           
-            <p><input class="w3-input" type="password" id="getUserKey" placeholder="key"></p>
-            <p><button class="w3-btn w3-black" onclick="addQuizKey()">Register</button></p>
+            <p><button class="w3-btn w3-black" onclick="addQuizKey()">Add Quiz</button></p>
         </div>
 
     </div>
     <div id="body" class="w3-center">
         <div class="w3-panel w3-card-4 w3-center" action="/action_page.php">
             <h2 class="w3-jumbo">Generate key for Quiz</h2>
-          
-            <p><input class="w3-input" type="password" id="generateKey" placeholder="key"></p>
-            <p><button class="w3-btn w3-black" onclick="generateQuizKey()">Register</button></p>
+            <p><button class="w3-btn w3-black" onclick="generateQuizKey()">Generate</button></p>
+            <h2 class="w3-jumbo">Remove key</h2>
+            <p><button class="w3-btn w3-black" onclick="removeQuizKey()">Remove</button></p>
         </div>
 </div>
 
     <div id="adminKey" class="w3-center">
         <div class="w3-panel w3-card-4 w3-center" action="/action_page.php">
-            <h2 class="w3-jumbo">Admin Key</h2>
-          
-            <p><input class="w3-input" type="password" id="getAdminKey" placeholder="key"></p>
-            <p><button class="w3-btn w3-black" onclick="adminKey()">Register</button></p>
+            <h2 class="w3-jumbo">Users Percentage</h2>
+            <p><button class="w3-btn w3-black" onclick="adminKey()">Check</button></p>
         </div>
 
     </div>
@@ -77,6 +73,7 @@
           <div id="listsDiv">
 
           </div>
+          <button class="w3-button w3-hover-red" onclick="document.getElementById('users').className='w3-center w3-light-gray none';document.getElementById('adminKey').className='w3-center w3-light-gray block'">Ok</button>
         </div>
 
     </div>

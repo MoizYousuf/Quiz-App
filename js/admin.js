@@ -1,9 +1,20 @@
 let listsDiv = document.getElementById("listsDiv");
 
-var length = 5,
+// check user login
+
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    localStorage.setItem("uid", user.uid);
+    // User is signed in.
+  } else {
+    document.location = "../html/login.html";
+  }
+});
+
+let length = 5,
   charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
   retVal = "";
-for (var i = 0, n = charset.length; i < length; ++i) {
+for (let i = 0, n = charset.length; i < length; ++i) {
   retVal += charset.charAt(Math.floor(Math.random() * n));
 }
 firebase
@@ -25,53 +36,45 @@ firebase
   .on("value", snapshot => {
     key = snapshot.val();
   });
+
+function removeQuizKey(){
+  firebase.database().ref(`Quizkey`).set({
+  })
+}
+
 function addQuizKey() {
-  let getUserKey = document.getElementById("getUserKey").value;
-  if (key === getUserKey) {
     document.location = "addquiz.html";
-  } else {
-    console.log("not match");
-  }
+   
 }
 function adminKey() {
-  let getAdminKey = document.getElementById("getAdminKey").value;
-  if (key === getAdminKey) {
-    document.getElementById("adminKey").className =
-      "w3-center w3-light-gray none";
-    document.getElementById("users").className =
-      "w3-center w3-light-gray block";
-    getUserData();
-  } else {
-    console.log("not match");
-  }
+  document.getElementById("adminKey").className =
+    "w3-center w3-light-gray none";
+  document.getElementById("users").className = "w3-center w3-light-gray block";
+
+  getUserData();
 }
+
 function generateQuizKey() {
-  let generateKey = document.getElementById("generateKey").value;
-  if (key === generateKey) {
-    let genrateKey;
-    (length = 5),
-      (charset =
-        "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"),
-      (retVal = "");
-    for (var i = 0, n = charset.length; i < length; ++i) {
-      retVal += charset.charAt(Math.floor(Math.random() * n));
-    }
-    firebase
-      .database()
-      .ref(`/Quizkey/`)
-      .set({
-        password: retVal
-      })
-      .then(success => {
-        console.log(success);
-        document.getElementById("generateKey").value = "";
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  } else {
-    console.log("not match");
+  let genrateKey;
+  let length = 5;
+  let charset =
+    "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+  let retVal = "";
+  for (let i = 0, n = charset.length; i < length; ++i) {
+    retVal += charset.charAt(Math.floor(Math.random() * n));
   }
+  firebase
+    .database()
+    .ref(`/Quizkey/`)
+    .set({
+      password: retVal
+    })
+    .then(() => {
+   console.log("generate");
+    })
+    .catch(() => {
+      console.log("not generate");
+    });
 }
 function logout() {
   firebase

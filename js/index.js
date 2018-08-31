@@ -12,4 +12,4 @@ function logout(){
 firebase.auth().signOut().then(() => {
     document.location='login.html'
 })
-}
+} 

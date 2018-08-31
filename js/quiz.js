@@ -13,6 +13,23 @@ let passingPercentage = 0;
 let userUid = localStorage.getItem("uid");
 let fullName;
 
+// check user login 
+
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    localStorage.setItem("uid", user.uid)
+    // User is signed in.
+  } else {
+    document.location='../html/login.html'
+  }
+});
+
+function logout(){
+  firebase.auth().signOut().then(() => {
+      document.location='login.html'
+  })
+  }
+
 function body() {
   listsDiv.innerHTML = "";
   firebase

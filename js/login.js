@@ -1,19 +1,40 @@
 function login() {
   let email = document.getElementById("inputEmail").value;
   let password = document.getElementById("inputPassword").value;
-  let fullName;
-  // console.log(fullName);
+  let adminData;
   // firebase
- 
 
   firebase
-    .auth()
-    .signInWithEmailAndPassword(email, password)
-    .then(success => {
-      // console.log(success);
-        document.location = "../html/index.html";
-    })
-    .catch(error => {
-      console.log(error);
+    .database()
+    .ref(`Admin/`)
+    .on("value", snapshot => {
+      adminData = snapshot.val();
+      console.log(adminData);
+      if (email == adminData.email && password == adminData.password) {
+        firebase
+          .auth()
+          .signInWithEmailAndPassword(email, password)
+          .then(success => {
+            // console.log(success);
+            document.location = "../html/indexAdmin.html";
+          })
+          .catch(error => {
+            console.log(error);
+          });
+      } else {
+        firebase
+          .auth()
+          .signInWithEmailAndPassword(email, password)
+          .then(success => {
+            // console.log(success);
+            document.location = "../html/index.html";
+          })
+          .catch(error => {
+            console.log(error);
+          });
+      }
     });
+    
 }
+
+
