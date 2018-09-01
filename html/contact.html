@@ -5,11 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Quiz App</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="../css/quiz.css">
     <link rel="shortcut icon" href="../images/games.ico " />
+
+    <title>Quiz App</title>
+    <link rel="stylesheet" href="../css/index.css">
     <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase.js"></script>
     <script>
         // Initialize Firebase
@@ -23,6 +24,15 @@
         };
         firebase.initializeApp(config);
     </script>
+    <style>
+        .w3-wide {
+            letter-spacing: 10px;
+        }
+
+        .w3-hover-opacity {
+            cursor: pointer;
+        }
+    </style>
 </head>
 
 <body>
@@ -31,37 +41,24 @@
             title="Toggle Navigation Menu">
             <i class="fa fa-bars"></i>
         </a>
-        <a href="index.html" class="w3-bar-item w3-button">HOME</a>
-        <a href="quiz.html" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> Quizs</a>
-        <a href="#contact" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> CONTACT</a>
+        <a href="indexAdmin.html" class="w3-bar-item w3-button">HOME</a>
+        <a href="admin.html" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> Admin</a>
+        <a href="quizAdmin.html" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> Quizs</a>
         <span class="w3-bar-item w3-hide-small w3-right" id='usernamePlace'></span>
         <a href="javascript:void(0)" onclick="logout()" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-red">
             Logout
         </a>
     </div>
-
-
-    <div class="w3-panel w3-card-4 w3-center" id="quizDiv">
-        <h2 class="w3-jumbo">Lists</h2>
-        <div id="lists"></div>
-
-    </div>
-
-    <div id="id01" class="w3-modal">
-        <div class="w3-modal-content">
-            <div class="w3-container">
-                <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">&times;</span>
-                <div id="modalParent">
-                    <p>Question No: <span id="questionNo"></span></p>
-                    <h1> Question:<span id="question"></span></h1>
-                    <div id="modal"></div>
-                    <button class="w3-btn w3-black" onclick="submit()">Submit</button>
+   <br />
+    <div id="cantact" class="w3-center">
+            <div class="w3-panel w3-card-4 w3-center" action="/action_page.php">
+                <h2 class="w3-jumbo w3-blue w3-text-red">Contact to Admin</h2>
+                <div id="modal">
+                    <input class="w3-input" placeholder="Any problem send message to Admin" type="text">
                 </div>
             </div>
-        </div>
-    </div>
 
-    <script src="../js/quiz.js"></script>
+    <script src="../js/contact.js"></script>
 </body>
 
 </html>

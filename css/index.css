@@ -1,5 +1,12 @@
 body{
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://unsplash.it/1200/800/?random');
+    background: url('https://unsplash.it/1200/800/?random');
     background-repeat: no-repeat;
     background-size: 100%;
+}
+#myNavbar{
+    overflow: hidden;
+  /* background-color: #333; */
+  position: fixed;
+  top: 0;
+  width: 100%;
 }

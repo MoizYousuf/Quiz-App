@@ -12,22 +12,27 @@
     <title>Quiz App</title>
     <link rel="stylesheet" href="../css/index.css">
     <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase.js"></script>
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyCykwARwInqFAeLI1-qZODdMP1EQhkFbf4",
-    authDomain: "quiz-app-js.firebaseapp.com",
-    databaseURL: "https://quiz-app-js.firebaseio.com",
-    projectId: "quiz-app-js",
-    storageBucket: "quiz-app-js.appspot.com",
-    messagingSenderId: "736972465648"
-  };
-  firebase.initializeApp(config);
-</script>
-<style>
-.w3-wide {letter-spacing: 10px;}
-.w3-hover-opacity {cursor: pointer;}
-</style>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyCykwARwInqFAeLI1-qZODdMP1EQhkFbf4",
+            authDomain: "quiz-app-js.firebaseapp.com",
+            databaseURL: "https://quiz-app-js.firebaseio.com",
+            projectId: "quiz-app-js",
+            storageBucket: "quiz-app-js.appspot.com",
+            messagingSenderId: "736972465648"
+        };
+        firebase.initializeApp(config);
+    </script>
+    <style>
+        .w3-wide {
+            letter-spacing: 10px;
+        }
+
+        .w3-hover-opacity {
+            cursor: pointer;
+        }
+    </style>
 </head>
 
 <body>
@@ -36,15 +41,20 @@
             title="Toggle Navigation Menu">
             <i class="fa fa-bars"></i>
         </a>
-        <a href="index.html" class="w3-bar-item w3-button">HOME</a>
+        <a href="indexAdmin.html" class="w3-bar-item w3-button">HOME</a>
         <a href="admin.html" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> Admin</a>
-        <a href="../quiz.html" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> Quizs</a>
+        <a href="quizAdmin.html" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> Quizs</a>
+        <span class="w3-bar-item w3-hide-small w3-right" id='usernamePlace'></span>
         <a href="javascript:void(0)" onclick="logout()" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-red">
             Logout
         </a>
     </div>
-    <div id="body">
-    </div>
+   <br />
+    <div id="adminKey" class="w3-center">
+            <div class="w3-panel w3-card-4 w3-center" action="/action_page.php">
+                <h2 class="w3-jumbo w3-blue w3-text-red">Total Users : <span id="totalUsers"></span></h2>
+                <div id="modal"></div>
+            </div>
 
     <script src="../js/index.js"></script>
 </body>

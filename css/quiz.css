@@ -9,3 +9,10 @@ body{
   height: 90vh;
   overflow-y: scroll;
 }
+#myNavbar{
+  overflow: hidden;
+/* background-color: #333; */
+position: fixed;
+top: 0;
+width: 100%;
+}

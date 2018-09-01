@@ -13,7 +13,24 @@ let passingPercentage = 0;
 let userUid = localStorage.getItem("uid");
 let fullName;
 
+
 // check user login 
+
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    localStorage.setItem("uid", user.uid);
+    firebase
+      .database()
+      .ref(`users/${user.uid}/`)
+      .on("value", snapshot => {
+        let userData = snapshot.val();
+        document.getElementById("usernamePlace").innerHTML =
+          userData.firstName + userData.lastName;
+      });
+  } else {
+    document.location = "../html/login.html";
+  }
+});
 
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
@@ -199,26 +216,28 @@ function saveToTheDatabaseAndShowPercentage() {
       console.log(user);
       // User is signed in.
       firebase
-        .database()
-        .ref(`Quiz/${title[buttonIndex]}/correctanswers/${user.uid}/`)
-        .set({
-          correctAnswers: correctAnswers,
-          percentage: percentage,
-          username: user.displayName
-        })
-        .then(() => {
-          console.log("push");
-          modalParent.innerHTML = `
+      .database()
+      .ref(`Quiz/${title[buttonIndex]}/correctanswers/${user.uid}/`)
+      .set({
+        correctAnswers: correctAnswers,
+        percentage: percentage,
+        username: user.displayName
+      })
+      .then(() => {
+        console.log("push");
+        modalParent.innerHTML = `
         <h1>Your Current Percentage is : <span>${percentage}%</span><br />${check}</h1>
         `;
-          percentage = 0;
-        });
+        percentage = 0;
+        totalNumber = 0;
+        console.log(percentage)
+        body();
+      });
     } else {
       // User is signed out.
       // ...
     }
   });
-  body();
 }
 
 body();

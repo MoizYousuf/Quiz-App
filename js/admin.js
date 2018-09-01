@@ -1,11 +1,19 @@
 let listsDiv = document.getElementById("listsDiv");
+// get Username
 
 // check user login
 
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     localStorage.setItem("uid", user.uid);
-    // User is signed in.
+    firebase
+      .database()
+      .ref(`users/${user.uid}/`)
+      .on("value", snapshot => {
+        let userData = snapshot.val();
+        document.getElementById("usernamePlace").innerHTML =
+          userData.firstName + userData.lastName;
+      });
   } else {
     document.location = "../html/login.html";
   }
@@ -37,19 +45,20 @@ firebase
     key = snapshot.val();
   });
 
-function removeQuizKey(){
-  firebase.database().ref(`Quizkey`).set({
-  })
+function removeQuizKey() {
+  firebase
+    .database()
+    .ref(`Quizkey`)
+    .set({});
 }
 
 function addQuizKey() {
-    document.location = "addquiz.html";
-   
+  document.location = "addquiz.html";
 }
 function adminKey() {
   document.getElementById("adminKey").className =
-    "w3-center w3-light-gray none";
-  document.getElementById("users").className = "w3-center w3-light-gray block";
+    "w3-center none";
+  document.getElementById("users").className = "w3-center block";
 
   getUserData();
 }
@@ -70,7 +79,7 @@ function generateQuizKey() {
       password: retVal
     })
     .then(() => {
-   console.log("generate");
+      console.log("generate");
     })
     .catch(() => {
       console.log("not generate");
@@ -104,7 +113,7 @@ function getUserData() {
       ${usernamePercentage.map((correctanswers, index) => {
         return `<h4 class='w3-text-red'>${
           correctanswers.username
-        }: <span class='w3-text-green'>${
+        }: <span class='w3-text-blue'>${
           correctanswers.percentage
         }%</span></h4>`;
       })}

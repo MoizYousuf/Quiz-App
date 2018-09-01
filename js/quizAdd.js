@@ -1,5 +1,22 @@
 let questionNo = 1;
 
+
+firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      localStorage.setItem("uid", user.uid);
+      firebase
+        .database()
+        .ref(`users/${user.uid}/`)
+        .on("value", snapshot => {
+          let userData = snapshot.val();
+          document.getElementById("usernamePlace").innerHTML =
+            userData.firstName + userData.lastName;
+        });
+    } else {
+      document.location = "../html/login.html";
+    }
+  });
+  
 // check user login 
 
 firebase.auth().onAuthStateChanged(function(user) {

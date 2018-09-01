@@ -1,7 +1,14 @@
 body{
-    background: url(../images/quiz2.jpg);
+    background-image: url("https://hdwallsource.com/img/2014/9/blur-26347-27038-hd-wallpapers.jpg");
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-attachment: fixed;
+}
+#myNavbar{
+    overflow: hidden;
+  /* background-color: #333; */
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 .w3-panel{
     width: 40%;
