@@ -10,7 +10,7 @@
     <link rel="shortcut icon" href="../images/games.ico " />
 
     <title>Quiz App</title>
-    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/contact.css">
     <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase.js"></script>
     <script>
         // Initialize Firebase
@@ -51,13 +51,19 @@
         </a>
     </div>
    <br />
-    <div id="adminKey" class="w3-center">
+    <div id="cantact" class="w3-center">
             <div class="w3-panel w3-card-4 w3-center" action="/action_page.php">
-                <h2 class="w3-jumbo w3-blue w3-text-red">Total Users : <span id="totalUsers"></span></h2>
-                <div id="modal"></div>
+                <h2 class="w3-jumbo w3-blue w3-text-red">Users problems</h2>
+                <div id="modal" class="w3-center">
+                    <div class="messages" id="messages">
+
+                    </div>
+                    <input id="input" class="w3-input" placeholder="Answers" type="text">
+                    <button class="w3-btn w3-hover-red" onclick="sendMessage()">send</button>
+                </div>
             </div>
 
-    <script src="../js/index.js"></script>
+    <script src="../js/adminContact.js"></script>
 </body>
 
 </html>

@@ -10,7 +10,7 @@
     <link rel="shortcut icon" href="../images/games.ico " />
 
     <title>Quiz App</title>
-    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/contact.css">
     <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase.js"></script>
     <script>
         // Initialize Firebase
@@ -41,9 +41,9 @@
             title="Toggle Navigation Menu">
             <i class="fa fa-bars"></i>
         </a>
-        <a href="indexAdmin.html" class="w3-bar-item w3-button">HOME</a>
-        <a href="admin.html" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> Admin</a>
-        <a href="quizAdmin.html" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> Quizs</a>
+        <a href="index.html" class="w3-bar-item w3-button">HOME</a>
+        <a href="quiz.html" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> Quizs</a>
+        <a href="contact.html" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> CONTACT</a>
         <span class="w3-bar-item w3-hide-small w3-right" id='usernamePlace'></span>
         <a href="javascript:void(0)" onclick="logout()" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-red">
             Logout
@@ -53,8 +53,12 @@
     <div id="cantact" class="w3-center">
             <div class="w3-panel w3-card-4 w3-center" action="/action_page.php">
                 <h2 class="w3-jumbo w3-blue w3-text-red">Contact to Admin</h2>
-                <div id="modal">
-                    <input class="w3-input" placeholder="Any problem send message to Admin" type="text">
+                <div id="modal" class="w3-center">
+                    <div class="messages" id="messages">
+
+                    </div>
+                    <input id="input" class="w3-input" placeholder="Any problem send message to Admin" type="text">
+                    <button class="w3-btn w3-hover-red" onclick="sendMessage()">send</button>
                 </div>
             </div>
 
