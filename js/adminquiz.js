@@ -14,6 +14,7 @@ let userUid = localStorage.getItem("uid");
 let fullName;
 let checkAlready = "submit";
 let uid;
+let data;
 
 // check user login
 
@@ -57,30 +58,36 @@ function body() {
     .database()
     .ref(`Quiz/`)
     .on("value", snapshot => {
-      let data = snapshot.val();
+      data = snapshot.val();
       data = Object.keys(data);
       quiz = Object.values(snapshot.val());
       title = data;
       data.map((value, index) => {
         return (listsDiv.innerHTML += `
         
-      <button onclick="quizPassword(${index})" class='w3-btn w3-red w3-block'>${value}</button><br /> 
+      <button onclick="quizPassword(${index})" class='w3-btn w3-red ' style='width: 93%;'>${value}</button>
+      <span class=" w3-right w3-btn w3-hover-red" onclick='remove(${index})'>&times;</span><br /> 
       `);
       });
     });
+}
+function remove(index){
+    let nothing = Object.values(quiz[index]);
+    firebase.database().ref(`Quiz/${data[index]}`).set({});
+    body();
 }
 function quizPassword(index) {
   uid = localStorage.getItem("uid");
   document.getElementById("id01").style.display = "block";
   // let checkUsers = Object.values(quiz[index].correctanswers);
-  let complete = '';
+  let complete = "";
   // checkUsers.map((value, index) => {
-    // if (value.uid == uid) {
-      // checkAlready = "Restart Quiz";
-      // complete = `<h1 class="w3-text-red"><span class='w3-text-blue'>Your Score : ${value.percentage}%<span></h1> `
-    // } else {
-      // checkAlready = "take";
-    // }
+  // if (value.uid == uid) {
+  // checkAlready = "Restart Quiz";
+  // complete = `<h1 class="w3-text-red"><span class='w3-text-blue'>Your Score : ${value.percentage}%<span></h1> `
+  // } else {
+  // checkAlready = "take";
+  // }
   // });
   // console.log(checkUsers);
   let modalDiv = document.getElementById("modalParent");

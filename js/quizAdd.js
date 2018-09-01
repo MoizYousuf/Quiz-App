@@ -85,3 +85,8 @@ function addQuestion(){
         })
 
     }
+    function end(){
+        document.location='../html/admin.html'
+   
+
+    }
