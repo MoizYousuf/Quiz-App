@@ -79,27 +79,29 @@ function remove(index){
 function quizPassword(index) {
   uid = localStorage.getItem("uid");
   document.getElementById("id01").style.display = "block";
-  // let checkUsers = Object.values(quiz[index].correctanswers);
-  let complete = "";
-  // checkUsers.map((value, index) => {
-  // if (value.uid == uid) {
-  // checkAlready = "Restart Quiz";
-  // complete = `<h1 class="w3-text-red"><span class='w3-text-blue'>Your Score : ${value.percentage}%<span></h1> `
-  // } else {
-  // checkAlready = "take";
-  // }
-  // });
+  let complete = '';
+  if(quiz[index].correctanswers){
+    let checkUsers = Object.values(quiz[index].correctanswers);
+  checkUsers.map((value, index) => {
+    if (value.uid == uid) {
+      checkAlready = "Restart Quiz";
+      complete = `<h1 class="w3-text-red"><span class='w3-text-blue'>Your Score : ${value.percentage}%<span></h1> `
+    } else {
+      checkAlready = "take";
+    }
+  });
+}
   // console.log(checkUsers);
   let modalDiv = document.getElementById("modalParent");
   modalDiv.innerHTML = "";
   modalDiv.innerHTML = `
   <div id="body" class="w3-center">
   <div class="w3-panel w3-card-4 w3-center" action="/action_page.php">
-  
+  ${complete}
       <h2 class="w3-jumbo">key for Quiz</h2>
     
       <p><input class="w3-input" type="password" id="Key" placeholder="key"></p>
-      <p><button class="w3-btn w3-black" onclick="quizPasswordCheck(${index})">Take Quiz</button></p>
+      <p><button class="w3-btn w3-black" onclick="quizPasswordCheck(${index})">${checkAlready}</button></p>
   </div>
 </div>
 `;

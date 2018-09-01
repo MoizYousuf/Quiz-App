@@ -15,7 +15,7 @@ firebase.auth().onAuthStateChanged(function(user) {
       .on("value", snapshot => {
         let userData = snapshot.val();
         document.getElementById("usernamePlace").innerHTML =
-          userData.firstName + userData.lastName;
+          `${userData.firstName + userData.lastName}`
       });
   } else {
     document.location = "../html/login.html";
@@ -57,7 +57,7 @@ function displayMessages() {
           messages.map((value, index) => {
             // document.getElementById("messages").innerHTML = "";
             return (document.getElementById("messages").innerHTML += `
-                  <h4><b>${value.sendBy}</b> : ${value.message}</h4>
+                  <h4><b>${value.sendByName}</b> : ${value.message}</h4>
                   `);
           });
         });
