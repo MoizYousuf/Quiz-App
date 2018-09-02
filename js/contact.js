@@ -47,13 +47,13 @@ function displayMessages() {
   document.getElementById("messages").innerHTML = "";
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
-      document.getElementById("messages").innerHTML = "";
       firebase
         .database()
         .ref(`messages_to_Admin/`)
         .on("value", snapshot => {
           let messages = Object.values(snapshot.val());
           console.log(messages);
+      document.getElementById("messages").innerHTML = "";
           messages.map((value, index) => {
             // document.getElementById("messages").innerHTML = "";
             return (document.getElementById("messages").innerHTML += `

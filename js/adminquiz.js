@@ -65,7 +65,7 @@ function body() {
       data.map((value, index) => {
         return (listsDiv.innerHTML += `
         
-      <button onclick="quizPassword(${index})" class='w3-btn w3-red ' style='width: 93%;'>${value}</button>
+      <button onclick="quizPassword(${index})" class='w3-btn w3-red ' style='width: 91%;'>${value}</button>
       <span class=" w3-right w3-btn w3-hover-red" onclick='remove(${index})'>&times;</span><br /> 
       `);
       });
