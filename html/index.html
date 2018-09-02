@@ -12,28 +12,32 @@
     <title>Quiz App</title>
     <link rel="stylesheet" href="../css/index.css">
     <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase.js"></script>
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyCykwARwInqFAeLI1-qZODdMP1EQhkFbf4",
-    authDomain: "quiz-app-js.firebaseapp.com",
-    databaseURL: "https://quiz-app-js.firebaseio.com",
-    projectId: "quiz-app-js",
-    storageBucket: "quiz-app-js.appspot.com",
-    messagingSenderId: "736972465648"
-  };
-  firebase.initializeApp(config);
-</script>
-<style>
-.w3-wide {letter-spacing: 10px;}
-.w3-hover-opacity {cursor: pointer;}
-</style>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyCykwARwInqFAeLI1-qZODdMP1EQhkFbf4",
+            authDomain: "quiz-app-js.firebaseapp.com",
+            databaseURL: "https://quiz-app-js.firebaseio.com",
+            projectId: "quiz-app-js",
+            storageBucket: "quiz-app-js.appspot.com",
+            messagingSenderId: "736972465648"
+        };
+        firebase.initializeApp(config);
+    </script>
+    <style>
+        .w3-wide {
+            letter-spacing: 10px;
+        }
+        
+        .w3-hover-opacity {
+            cursor: pointer;
+        }
+    </style>
 </head>
 
 <body>
     <div class="w3-bar w3-blue" id="myNavbar">
-        <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()"
-            title="Toggle Navigation Menu">
+        <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
             <i class="fa fa-bars"></i>
         </a>
         <a href="index.html" class="w3-bar-item w3-button">HOME</a>
