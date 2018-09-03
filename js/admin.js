@@ -3,6 +3,23 @@ let listsDiv = document.getElementById("listsDiv");
 
 // check user login
 
+function renderReload() {
+  if (firebase.database().ref(`Quizkey/`)) {
+  firebase
+    .database()
+    .ref(`Quizkey/`)
+    .on("value", snapshot => {
+      console.log(snapshot.val());
+        document.getElementById("keyhere").innerHTML = `
+        Key: ${snapshot.val().password}
+        `;
+      });
+    }
+      else{
+        document.getElementById("keyhere").innerHTML = ``;
+      }
+  }
+
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     localStorage.setItem("uid", user.uid);
@@ -15,7 +32,7 @@ firebase.auth().onAuthStateChanged(function(user) {
           userData.firstName + userData.lastName;
       });
   } else {
-    document.location = "../html/login.html";
+    document.location = "../index.html";
   }
 });
 
@@ -45,19 +62,22 @@ firebase
     key = snapshot.val();
   });
 
-function removeQuizKey() {
-  firebase
+  function removeQuizKey() {
+    firebase
     .database()
     .ref(`Quizkey`)
-    .set({});
+    .set({})
+    .then(() => {
+      document.getElementById("keyhere").innerHTML = ``;
+      renderReload()
+    });
 }
 
 function addQuizKey() {
   document.location = "addquiz.html";
 }
 function adminKey() {
-  document.getElementById("adminKey").className =
-    "w3-center none";
+  document.getElementById("adminKey").className = "w3-center none";
   document.getElementById("users").className = "w3-center block";
 
   getUserData();
@@ -90,7 +110,7 @@ function logout() {
     .auth()
     .signOut()
     .then(() => {
-      document.location = "login.html";
+      document.location = "index.html";
     });
 }
 function getUserData() {
@@ -121,3 +141,4 @@ function getUserData() {
       });
     });
 }
+renderReload();

@@ -17,7 +17,7 @@ function signUp(){
            email,
            password
         }).then(() => {
-            document.location='login.html'
+            document.location='../index.html'
         })
         })
 

@@ -50,14 +50,21 @@
             Logout
         </a>
     </div>
-   <br />
+    <br />
     <div id="adminKey" class="w3-center">
-            <div class="w3-panel w3-card-4 w3-center" action="/action_page.php">
-                <h2 class="w3-jumbo w3-blue w3-text-red">Total Users : <span id="totalUsers"></span></h2>
-                <div id="modal"></div>
-            </div>
 
-    <script src="../js/index.js"></script>
+        <div class="users">Users Lists<br></div>
+        <div class="totalUsers">Total Users(<span id="totalUsers" style="color: darkorange;"></span>)</div>
+
+        <table class="table" id="modal">
+            <tr class="tableHead">
+                <th>No</th>
+                <th>Usernames</th>
+                <th>Uid</th>
+            </tr>
+        </table>
+
+        <script src="../js/index.js"></script>
 </body>
 
 </html>

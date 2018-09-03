@@ -11,7 +11,7 @@ firebase.auth().onAuthStateChanged(function(user) {
           userData.firstName + userData.lastName;
       });
   } else {
-    document.location = "../html/login.html";
+    document.location = "../index.html";
   }
 });
 
@@ -20,7 +20,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     localStorage.setItem("uid", user.uid);
     // User is signed in.
   } else {
-    document.location = "../html/login.html";
+    document.location = "../index.html";
   }
 });
 
@@ -29,13 +29,14 @@ function logout() {
     .auth()
     .signOut()
     .then(() => {
-      document.location = "login.html";
+      document.location = "index.html";
     });
 }
 
 function totalUsers() {
   let totalUsers = document.getElementById("totalUsers");
   let body = document.getElementById("modal");
+
 
   firebase
     .database()
@@ -47,7 +48,12 @@ function totalUsers() {
         if (localStorage.getItem("adminUid") == value.uid) {
         } else {
           return body.innerHTML += `
-          <h3 class="w3-light-gray"><b>Username:</b> ${value.firstName + value.lastName} and <b>Uid:</b> ${value.uid}</h3>
+          <tr class='tableBody'>
+          <td>${index+1}</td>
+          <td> ${value.firstName + value.lastName}</td>
+          <td>${value.uid}</td>
+          </tr>
+         
         `;
         }
       });

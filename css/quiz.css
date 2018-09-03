@@ -1,13 +1,15 @@
+@media only screen 
+and (min-width : 1224px) {
+/* Styles */
+}
 body{
-  background: url(../images/quiz2.jpg);
+  background: url('https://unsplash.it/1200/800/?random');
   background-repeat: no-repeat;
   background-size: 100%;
 }
 .w3-panel{
   width: 40%;
   margin-left: 30%;
-  height: 90vh;
-  overflow-y: scroll;
 }
 #myNavbar{
   overflow: hidden;
@@ -15,4 +17,135 @@ body{
 position: fixed;
 top: 0;
 width: 100%;
+}
+.grid {
+  width: 600px;
+  height: 500px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 10px 50px 50px 50px;
+  border-radius: 50px;
+  border: 2px solid #cbcbcb;
+  box-shadow: 10px 15px 5px #cbcbcb;
+}
+
+.grid h1 {
+  font-family: "sans-serif";
+  background-color: #57636e;
+  font-size: 60px;
+  text-align: center;
+  color: #ffffff;
+  padding: 2px 0px;
+  border-radius: 50px;
+}
+
+#score {
+  color: #5A6772;
+  text-align: center;
+  font-size: 30px;
+}
+
+.grid #question {
+  font-family: "monospace";
+  font-size: 30px;
+  color: #5A6772;
+}
+
+.buttons {
+  margin-top: 30px;
+  margin-right: 5%;
+}
+
+#btn0, #btn1, #btn2, #btn3 {
+  background-color: #778897;
+  width: 250px;
+  font-size: 20px;
+  color: #fff;
+  border: 1px solid #1D3C6A;
+  border-radius: 50px;
+  margin: 10px 40px 10px 0px;
+  padding: 10px 10px;
+}
+
+#btn0:hover, #btn1:hover, #btn2:hover, #btn3:hover {
+  cursor: pointer;
+  background-color: #57636e;
+}
+
+#btn0:focus, #btn1:focus, #btn2:focus, #btn3:focus {
+  outline: 0;
+}
+
+#progress {
+  color: #2b2b2b;
+  font-size: 18px;
+}
+#quizDiv{
+  /* margin-top: 2%; */
+  margin-top: 4%;
+}
+.Quizes{
+  text-align: center;
+  width: 55%;
+  margin-left: 24%;
+}
+.quizLogo{
+  background: #AF6666;
+  font-weight: bold;
+  font-size: 800%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #FFC4C4;
+  text-align: center;
+  text-shadow: 23px 11px 10px rgb(86,56,56, 0.3);
+}
+.list{
+  background:  rgba(0, 252, 76, 0.3);
+}
+.listsLogo{
+  margin-top: -20px;
+  height: 20vh;
+  text-align: center;
+    color: rgb(253, 148, 148);
+  font-size: 127px;
+  font-weight: bold;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-shadow: 14px 1px 3px rgb(86,56,56, 0.3);
+}
+#lists{
+  opacity: 1.0;
+text-align: center;
+  margin-top: -10%;
+  overflow-y: scroll;
+  height: 51vh;
+}
+.w3-red{
+  width: 70%;
+  border: red;
+  height: 11%;
+  font-size: 42px;
+}
+.remove{
+  border: red;
+  background: lightblue;
+  width: 5%;
+  height: 11%;
+  font-size: 17px;
+  margin-top: -10px;
+  padding-top: 26px;
+}
+.w3-modal-content {
+  width: 900px;
+  height: 58vh;
+}
+.quizPassword{
+  width: 40%;
+  margin-left: 30%;
+}
+.radio{
+  height: 20px;
+  width: 20px;
+}
+#modal{
+  font-size: 28px;
+    font-family: inherit;
 }

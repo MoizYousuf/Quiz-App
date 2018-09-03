@@ -30,7 +30,7 @@ firebase.auth().onAuthStateChanged(function(user) {
           userData.firstName + userData.lastName;
       });
   } else {
-    document.location = "../html/login.html";
+    document.location = "../index.html";
   }
 });
 
@@ -39,7 +39,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     localStorage.setItem("uid", user.uid);
     // User is signed in.
   } else {
-    document.location = "../html/login.html";
+    document.location = "../index.html";
   }
 });
 
@@ -48,7 +48,7 @@ function logout() {
     .auth()
     .signOut()
     .then(() => {
-      document.location = "login.html";
+      document.location = "index.html";
     });
 }
 
@@ -65,32 +65,42 @@ function body() {
       data.map((value, index) => {
         return (listsDiv.innerHTML += `
         
-      <button onclick="quizPassword(${index})" class='w3-btn w3-red ' style='width: 91%;'>${value}</button>
-      <span class=" w3-right w3-btn w3-hover-red" onclick='remove(${index})'>&times;</span><br /> 
+      <button  onclick="quizPassword(${index})" class=' w3-red ' style='width: 91%;'>${value}</button>
+      <button class="remove w3-hover-red" onclick='remove(${index})'>&times;</button><br /> <br />
       `);
       });
     });
 }
-function remove(index){
-    let nothing = Object.values(quiz[index]);
-    firebase.database().ref(`Quiz/${data[index]}`).set({});
+function remove(index) {
+  let nothing = Object.values(quiz[index]);
+  var txt;
+  var r = confirm("Press a button!");
+  if (r == true) {
+    firebase
+      .database()
+      .ref(`Quiz/${data[index]}`)
+      .set({});
     body();
+  } else {
+  }
 }
 function quizPassword(index) {
   uid = localStorage.getItem("uid");
   document.getElementById("id01").style.display = "block";
-  let complete = '';
-  if(quiz[index].correctanswers){
+  let complete = "";
+  if (quiz[index].correctanswers) {
     let checkUsers = Object.values(quiz[index].correctanswers);
-  checkUsers.map((value, index) => {
-    if (value.uid == uid) {
-      checkAlready = "Restart Quiz";
-      complete = `<h1 class="w3-text-red"><span class='w3-text-blue'>Your Score : ${value.percentage}%<span></h1> `
-    } else {
-      checkAlready = "take";
-    }
-  });
-}
+    checkUsers.map((value, index) => {
+      if (value.uid == uid) {
+        checkAlready = "Restart Quiz";
+        complete = `<h1 class="w3-text-red"><span class='w3-text-blue'>Your Score : ${
+          value.percentage
+        }%<span></h1> `;
+      } else {
+        checkAlready = "take";
+      }
+    });
+  }
   // console.log(checkUsers);
   let modalDiv = document.getElementById("modalParent");
   modalDiv.innerHTML = "";
@@ -170,31 +180,46 @@ function quizStart(index) {
   let questionNo = document.getElementById("questionNo");
   let questionDiv = document.getElementById("question");
   let questions = Object.values(quiz[buttonIndex].questions);
-
+  let selectionString;
   correctIndex = questions[count].correct_index;
 
-  questionNo.innerHTML = `${count + 1}`;
-  questionDiv.innerHTML = `${questions[count].question}`;
+  console.log(selectionString);
+  questionNo.textContent = `${count + 1}`;
+  questionDiv.textContent = `${questions[count].question}`;
   lastQuestion = count;
   totalQuestions = questions.length;
 
   questions[count].selections.map((selection, index) => {
-    return (modalDiv.innerHTML += `
-  <input type='radio' name="selector" onclick="getRadioIndex(${index})" value="${selection}">${selection}<br />
-  `);
+    console.log(selectionString);
+    selectionString = selection.toString();
+    var span = document.createElement("span");
+    var br = document.createElement("br");
+var node = document.createTextNode(`${selectionString}`);
+span.appendChild(node);
+let returnModal = modalDiv.innerHTML += `<input type="radio" class='radio' name="selector" onclick="getRadioIndex(${index})" value="${selectionString}">`
+modalDiv.appendChild(span)
+modalDiv.appendChild(br);
 
-    // })
-    // })
+return (returnModal);
+span
+// })
+// })
   });
+  // modalDiv.textContent += `>`;
 }
 
 function getRadioIndex(index) {
   console.log(index);
-  answer = index;
+  if(index){
+    answer = index;
+  }else{
+    alert("please select")
+  }
 }
 
 function submit() {
   document.getElementById("id01").style.display = "none";
+  if(answer){
   if (answer === correctIndex - 1) {
     console.log("right answer");
     ++correctAnswers;
@@ -219,6 +244,10 @@ function submit() {
     quizStart();
     body();
   }
+}else{
+  alert('select selection')
+  quizStart();
+}
 }
 
 function saveToTheDatabaseAndShowPercentage() {

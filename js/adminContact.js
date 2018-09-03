@@ -3,7 +3,7 @@ function logout() {
     .auth()
     .signOut()
     .then(() => {
-      document.location = "login.html";
+      document.location = "index.html";
     });
 }
 firebase.auth().onAuthStateChanged(function(user) {
@@ -18,7 +18,7 @@ firebase.auth().onAuthStateChanged(function(user) {
           userData.firstName + userData.lastName;
       });
   } else {
-    document.location = "../html/login.html";
+    document.location = "../index.html";
   }
 });
 function sendMessage() {
@@ -38,7 +38,7 @@ function sendMessage() {
       displayMessages();
       // User is signed in.
     } else {
-      document.location = "../html/login.html";
+      document.location = "../index.html";
     }
   });
 }

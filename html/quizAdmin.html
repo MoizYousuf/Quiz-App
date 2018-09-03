@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Quiz App</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -42,20 +42,28 @@
     </div>
 
 
-    <div class="w3-panel w3-card-4 w3-center" id="quizDiv">
-        <h2 class="w3-jumbo">Lists</h2>
-        <div id="lists"></div>
+    <div id="quizDiv">
+        <div class="Quizes">
+            <p class="quizLogo">Quizes</p>
+        </div>
+        <div class="list">
+            <p class="listsLogo">Lists</p>
+            <br />
+            <div id="lists"></div>
+        </div>
+
 
     </div>
 
     <div id="id01" class="w3-modal">
         <div class="w3-modal-content">
             <div class="w3-container">
-                <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+                <span onclick="document.getElementById('id01').style.display='none'; count = 0;" class="w3-button w3-display-topright">&times;</span>
                 <div id="modalParent">
                     <p>Question No: <span id="questionNo"></span></p>
                     <h1> Question:<span id="question"></span></h1>
-                    <div id="modal"></div>
+                    <div id="modal">
+                    </div>
                     <button class="w3-btn w3-black" onclick="submit()">Submit</button>
                 </div>
             </div>
