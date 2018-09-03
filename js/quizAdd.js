@@ -72,15 +72,69 @@ function addQuestion() {
     alert("Add Selection:1");
   } else if (selection2 == "" || selection2 == null) {
     alert("Add Selection:2");
-  } else if (selection3 == "" || selection3 == null) {
-    alert("Add Selection:3");
-  } else if (selection4 == "" || selection4 == null) {
-    alert("Add Selection:4");
   } else if (Marks == "" || Marks == null) {
     alert("Add Marks");
   } else if (correctIndex == "" || correctIndex == null) {
     alert("Add Correct Index");
   } else {
+    if(selection3 == "" || selection3 == null){
+
+      quizName = quizName.toLowerCase();
+      console.log(`Quiz/${quizName}/questions`);
+      firebase
+        .database()
+        .ref(`Quiz/${quizName}/questions/`)
+        .push({
+          question: question,
+          selections: [selection1, selection2],
+          correct_index: correctIndex,
+          passing_percentage: passing_percentage,
+          question_marks: Marks
+        })
+        .then(() => {
+          console.log("quiz added");
+          questionNo++;
+          document.getElementById("questionNo").innerHTML = questionNo;
+          document.getElementById("question").value = "";
+          document.getElementById("input1").value = "";
+          document.getElementById("input2").value = "";
+          document.getElementById("input3").value = "";
+          document.getElementById("input4").value = "";
+          document.getElementById("input5").value = "";
+          document.getElementById("correctIndex").value = "";
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    }else if(selection4 == "" || selection4 == null){
+      quizName = quizName.toLowerCase();
+      console.log(`Quiz/${quizName}/questions`);
+      firebase
+        .database()
+        .ref(`Quiz/${quizName}/questions/`)
+        .push({
+          question: question,
+          selections: [selection1, selection2, selection3],
+          correct_index: correctIndex,
+          passing_percentage: passing_percentage,
+          question_marks: Marks
+        })
+        .then(() => {
+          console.log("quiz added");
+          questionNo++;
+          document.getElementById("questionNo").innerHTML = questionNo;
+          document.getElementById("question").value = "";
+          document.getElementById("input1").value = "";
+          document.getElementById("input2").value = "";
+          document.getElementById("input3").value = "";
+          document.getElementById("input4").value = "";
+          document.getElementById("input5").value = "";
+          document.getElementById("correctIndex").value = "";
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    }else{
     quizName = quizName.toLowerCase();
     console.log(`Quiz/${quizName}/questions`);
     firebase
@@ -108,11 +162,12 @@ function addQuestion() {
       .catch(error => {
         console.log(error);
       });
+    }
   }
 }
 
 function end() {
-    let confiremThat = confirm(`Quesion ${questionNo} dont add you add Only Quesion ${questionNo - 1}`)
+    let confiremThat = confirm(`Question ${questionNo} dont add you add total Questions ${questionNo - 1}`)
     if(confiremThat){
   document.location = "../html/indexAdmin.html";
 }
