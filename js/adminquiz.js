@@ -15,6 +15,8 @@ let fullName;
 let checkAlready = "submit";
 let uid;
 let data;
+let flag = false;
+let currentNumber = 0;
 
 // check user login
 
@@ -210,22 +212,23 @@ span
 
 function getRadioIndex(index) {
   console.log(index);
-
     answer = index;
+    flag = true;
 
 }
 
 function submit() {
   document.getElementById("id01").style.display = "none";
-  if(answer){
+  if(flag){
+    let questions = Object.values(quiz[buttonIndex].questions);
+    totalNumber += Number(questions[count].question_marks);
   if (answer === correctIndex - 1) {
     console.log("right answer");
     ++correctAnswers;
-    let questions = Object.values(quiz[buttonIndex].questions);
     passingPercentage = Number(questions[count].passing_percentage);
-    totalNumber += Number(questions[count].question_marks);
+    currentNumber += Number(questions[count].question_marks);
     console.log(correctAnswers);
-    console.log(totalNumber);
+    console.log(totalNumber); 
   } else {
     console.log("Wrong Answer");
     console.log(correctAnswers);
@@ -245,6 +248,7 @@ function submit() {
 }else{
   alert('select selection')
   quizStart();
+  flag = false;
 }
 }
 
@@ -252,7 +256,7 @@ function saveToTheDatabaseAndShowPercentage() {
   document.getElementById("modalParent").innerHTML = "";
 
   document.getElementById("id01").style.display = "block";
-  let percentage = (totalNumber / 100) * 100;
+  let percentage = (currentNumber / totalNumber) * 100;
   console.log(percentage);
   let modalParent = document.getElementById("modalParent");
   let check;

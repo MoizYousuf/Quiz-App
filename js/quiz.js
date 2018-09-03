@@ -15,6 +15,8 @@ let fullName;
 let checkAlready = "submit";
 let uid;
 let data;
+let flag = false;
+let currentNumber = 0;
 
 // check user login
 
@@ -180,55 +182,59 @@ function quizStart(index) {
     selectionString = selection.toString();
     var span = document.createElement("span");
     var br = document.createElement("br");
-var node = document.createTextNode(`${selectionString}`);
-span.appendChild(node);
-let returnModal = modalDiv.innerHTML += `<input type="radio" class='radio' name="selector" onclick="getRadioIndex(${index})" value="${selectionString}">`
-modalDiv.appendChild(span)
-modalDiv.appendChild(br);
+    var node = document.createTextNode(`${selectionString}`);
+    span.appendChild(node);
+    let returnModal = (modalDiv.innerHTML += `<input type="radio" class='radio' name="selector" onclick="getRadioIndex(${index})" value="${selectionString}">`);
+    modalDiv.appendChild(span);
+    modalDiv.appendChild(br);
 
-return (returnModal);
-span
-// })
-// })
+    return returnModal;
+    span;
+    // })
+    // })
   });
   // modalDiv.textContent += `>`;
 }
 
 function getRadioIndex(index) {
   console.log(index);
-    answer = index;
+  answer = index;
+  flag = true;
 }
 
 function submit() {
   document.getElementById("id01").style.display = "none";
-  if(answer){
-  if (answer === correctIndex - 1) {
-    console.log("right answer");
-    ++correctAnswers;
+  if (flag) {
     let questions = Object.values(quiz[buttonIndex].questions);
-    passingPercentage = Number(questions[count].passing_percentage);
     totalNumber += Number(questions[count].question_marks);
-    console.log(correctAnswers);
-    console.log(totalNumber);
-  } else {
-    console.log("Wrong Answer");
-    console.log(correctAnswers);
-  }
-  if (lastQuestion + 1 == totalQuestions) {
-    // function
-    body();
-    saveToTheDatabaseAndShowPercentage();
-    console.log("end");
-  } else {
-    console.log(lastQuestion + 1, totalQuestions);
-    count++;
+    if (answer === correctIndex - 1) {
+      console.log("right answer");
+      ++correctAnswers;
+      passingPercentage = Number(questions[count].passing_percentage);
+      currentNumber += Number(questions[count].question_marks);
+      console.log(correctAnswers);
+      console.log(totalNumber);
+    } else {
+      console.log("Wrong Answer");
+      console.log(correctAnswers);
+    }
+    if (lastQuestion + 1 == totalQuestions) {
+      // function
+      body();
+      saveToTheDatabaseAndShowPercentage();
+      console.log("end");
+    } else {
+      console.log(lastQuestion + 1, totalQuestions);
+      count++;
 
+      quizStart();
+      body();
+    }
+  } else {
+    alert("select selection");
     quizStart();
-    body();
+    flag = false;
   }
-}else{
-  alert('select selection')
-}
 }
 
 function saveToTheDatabaseAndShowPercentage() {
