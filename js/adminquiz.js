@@ -210,11 +210,9 @@ span
 
 function getRadioIndex(index) {
   console.log(index);
-  if(index){
+
     answer = index;
-  }else{
-    alert("please select")
-  }
+
 }
 
 function submit() {
