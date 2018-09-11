@@ -1,22 +1,27 @@
-@media only screen 
-and (min-width : 1224px) {
-/* Styles */
+@media only screen and (min-width: 1224px) {
+  /* Styles */
 }
-body{
-  background: url('https://unsplash.it/1200/800/?random');
+body {
+  background: url("https://unsplash.it/1200/800/?random");
   background-repeat: no-repeat;
   background-size: 100%;
+  height: 100%;
+  width: 100%;
 }
-.w3-panel{
+.container {
+  width: 100%;
+  height: 100%;
+}
+.w3-panel {
   width: 40%;
   margin-left: 30%;
 }
-#myNavbar{
+#myNavbar {
   overflow: hidden;
-/* background-color: #333; */
-position: fixed;
-top: 0;
-width: 100%;
+  /* background-color: #333; */
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 .grid {
   width: 600px;
@@ -40,7 +45,7 @@ width: 100%;
 }
 
 #score {
-  color: #5A6772;
+  color: #5a6772;
   text-align: center;
   font-size: 30px;
 }
@@ -48,7 +53,7 @@ width: 100%;
 .grid #question {
   font-family: "monospace";
   font-size: 30px;
-  color: #5A6772;
+  color: #5a6772;
 }
 
 .buttons {
@@ -56,23 +61,32 @@ width: 100%;
   margin-right: 5%;
 }
 
-#btn0, #btn1, #btn2, #btn3 {
+#btn0,
+#btn1,
+#btn2,
+#btn3 {
   background-color: #778897;
   width: 250px;
   font-size: 20px;
   color: #fff;
-  border: 1px solid #1D3C6A;
+  border: 1px solid #1d3c6a;
   border-radius: 50px;
   margin: 10px 40px 10px 0px;
   padding: 10px 10px;
 }
 
-#btn0:hover, #btn1:hover, #btn2:hover, #btn3:hover {
+#btn0:hover,
+#btn1:hover,
+#btn2:hover,
+#btn3:hover {
   cursor: pointer;
   background-color: #57636e;
 }
 
-#btn0:focus, #btn1:focus, #btn2:focus, #btn3:focus {
+#btn0:focus,
+#btn1:focus,
+#btn2:focus,
+#btn3:focus {
   outline: 0;
 }
 
@@ -80,72 +94,74 @@ width: 100%;
   color: #2b2b2b;
   font-size: 18px;
 }
-#quizDiv{
+#quizDiv {
   /* margin-top: 2%; */
   margin-top: 4%;
 }
-.Quizes{
+.Quizes {
+  background: #af6666;
   text-align: center;
   width: 55%;
-  margin-left: 24%;
+  margin: 0 auto;
+  height: 19vh;
 }
-.quizLogo{
-  background: #AF6666;
+.quizLogo {
   font-weight: bold;
-  font-size: 800%;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #FFC4C4;
+  font-size: 8vw;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #ffc4c4;
   text-align: center;
-  text-shadow: 23px 11px 10px rgb(86,56,56, 0.3);
+  text-shadow: 23px 11px 10px rgb(86, 56, 56, 0.3);
 }
-.list{
-  background:  rgba(0, 252, 76, 0.3);
+.list {
+  background: rgba(0, 252, 76, 0.3);
 }
-.listsLogo{
+.listsLogo {
   margin-top: -20px;
-  height: 20vh;
-  text-align: center;
+    height: 20vh;
+    text-align: center;
     color: rgb(253, 148, 148);
-  font-size: 127px;
-  font-weight: bold;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  text-shadow: 14px 1px 3px rgb(86,56,56, 0.3);
+    font-size: 6vw;
+    font-weight: bold;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    text-shadow: 14px 1px 3px rgb(86, 56, 56, 0.3);
 }
-#lists{
-  opacity: 1.0;
-text-align: center;
+#lists {
+  opacity: 1;
+  text-align: center;
   margin-top: -10%;
-  overflow-y: scroll;
-  height: 51vh;
+  overflow-y: auto;
+  /* height: 51vh; */
 }
-.w3-red{
+.w3-red {
   width: 70%;
   border: red;
   height: 11%;
-  font-size: 42px;
+  font-size: 1vw;
+  padding-bottom: 1vw;
+  padding-top: 1vw;
 }
-.remove{
+.remove {
   border: red;
   background: lightblue;
   width: 5%;
-  height: 11%;
-  font-size: 17px;
-  margin-top: -10px;
-  padding-top: 26px;
+  font-size: 1vw;
+  padding-bottom: 1vw;
+  padding-top: 1vw;
 }
 .w3-modal-content {
   width: 900px;
   height: 58vh;
 }
-.quizPassword{
+.quizPassword {
   width: 40%;
   margin-left: 30%;
 }
-.radio{
+.radio {
   height: 20px;
   width: 20px;
 }
-#modal{
+#modal {
   font-size: 28px;
-    font-family: inherit;
+  font-family: inherit;
 }

@@ -18,7 +18,7 @@ body{
     font-weight: bold;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin-top: 1pc;
-    font-size: 809%;
+    font-size: 7vw;
     color: white;
 }
 .totalUsers{
@@ -29,7 +29,7 @@ body{
     height: 9pc;
     background: #988783;
     font-weight: bold;
-    font-size: 554%;
+    font-size: 5vw;
 }
 .tableHead{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -42,7 +42,7 @@ table{
     border-collapse: collapse;
     width: 86%;
     background: white;
-    font-size: 25px;
+    font-size: 2vw;
     margin-left: 7%;
 }
 .tableBody{
