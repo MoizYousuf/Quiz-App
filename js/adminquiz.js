@@ -74,8 +74,6 @@ function body() {
     });
 }
 function remove(index) {
-  let nothing = Object.values(quiz[index]);
-  var txt;
   var r = confirm("Are you sure to delete this quiz");
   if (r == true) {
     firebase
